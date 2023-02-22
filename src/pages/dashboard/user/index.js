@@ -8,7 +8,7 @@ export default function Index() {
 
   useEffect(() => {
     if (router.pathname === '/dashboard/user') {
-      router.push('/dashboard/user/four');
+      router.push('/dashboard/user/six');
     }
   });
 

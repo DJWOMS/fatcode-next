@@ -36,13 +36,6 @@ export default function PageSix() {
           Vestibulum suscipit nulla quis orci. Nam commodo suscipit quam. Sed a libero.
         </Typography>
 
-        <Typography>
-          Praesent ac sem eget est egestas volutpat. Phasellus viverra nulla ut metus varius
-          laoreet. Curabitur ullamcorper ultricies nisi. Ut non enim eleifend felis pretium feugiat.
-          Donec mi odio, faucibus at, scelerisque quis, convallis in, nisi. Fusce vel dui. Quisque
-          libero metus, condimentum nec, tempor a, commodo mollis, magna. In enim justo, rhoncus ut,
-          imperdiet a, venenatis vitae, justo. Cras dapibus.
-        </Typography>
       </Container>
     </>
   );
