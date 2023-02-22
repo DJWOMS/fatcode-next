@@ -28,8 +28,6 @@ export default function Home() {
 
         <Typography gutterBottom>
           Curabitur turpis. Vestibulum facilisis, purus nec pulvinar iaculis, ligula mi congue nunc,
-          vitae euismod ligula urna in dolor. Nam quam nunc, blandit vel, luctus pulvinar, hendrerit
-          id, lorem. Phasellus blandit leo ut odio. Vestibulum ante ipsum primis in faucibus orci
         </Typography>
 
       </Container>
