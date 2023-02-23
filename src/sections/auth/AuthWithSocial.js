@@ -8,7 +8,7 @@ import Iconify from '../../components/iconify';
 // ----------------------------------------------------------------------
 
 export default function AuthWithSocial() {
-  const { loginWithGoogle, loginWithGithub, loginWithTwitter } = useAuthContext();
+  const { loginWithGoogle, loginWithGithub } = useAuthContext();
 
   const handleGoogleLogin = async () => {
     try {
@@ -32,17 +32,6 @@ export default function AuthWithSocial() {
     }
   };
 
-  const handleTwitterLogin = async () => {
-    try {
-      if (loginWithTwitter) {
-        loginWithTwitter();
-      }
-      console.log('TWITTER LOGIN');
-    } catch (error) {
-      console.error(error);
-    }
-  };
-
   return (
     <div>
       <Divider
@@ -55,20 +44,16 @@ export default function AuthWithSocial() {
           },
         }}
       >
-        OR
+        ИЛИ
       </Divider>
 
       <Stack direction="row" justifyContent="center" spacing={2}>
-        <IconButton onClick={handleGoogleLogin}>
-          <Iconify icon="eva:google-fill" color="#DF3E30" />
-        </IconButton>
+        {/*<IconButton onClick={handleGoogleLogin}>*/}
+        {/*  <Iconify icon="eva:google-fill" color="#DF3E30" />*/}
+        {/*</IconButton>*/}
 
         <IconButton color="inherit" onClick={handleGithubLogin}>
           <Iconify icon="eva:github-fill" />
-        </IconButton>
-
-        <IconButton onClick={handleTwitterLogin}>
-          <Iconify icon="eva:twitter-fill" color="#1C9CEA" />
         </IconButton>
       </Stack>
     </div>

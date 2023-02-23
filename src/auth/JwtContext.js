@@ -155,7 +155,7 @@ export function AuthProvider({children}) {
         },
       });
     } catch (error) {
-      throw new Error(error.detail)
+      throw new Error(error)
     }
   }, []);
 
