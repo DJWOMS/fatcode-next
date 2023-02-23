@@ -1,10 +1,10 @@
 import PropTypes from 'prop-types';
-import { createContext, useEffect, useReducer, useCallback, useMemo } from 'react';
+import {createContext, useEffect, useReducer, useCallback, useMemo} from 'react';
 // utils
 import axios from '../utils/axios';
 import localStorageAvailable from '../utils/localStorageAvailable';
 //
-import { isValidToken, setSession } from './utils';
+import {setSession} from './utils';
 
 // ----------------------------------------------------------------------
 
@@ -63,7 +63,7 @@ AuthProvider.propTypes = {
   children: PropTypes.node,
 };
 
-export function AuthProvider({ children }) {
+export function AuthProvider({children}) {
   const [state, dispatch] = useReducer(reducer, initialState);
 
   const storageAvailable = localStorageAvailable();
@@ -72,12 +72,12 @@ export function AuthProvider({ children }) {
     try {
       const accessToken = storageAvailable ? localStorage.getItem('accessToken') : '';
 
-      if (accessToken && isValidToken(accessToken)) {
+      if (accessToken) {
         setSession(accessToken);
 
-        const response = await axios.get('/api/account/my-account');
-
-        const { user } = response.data;
+        const response = await axios.get('/auth/users/me');
+        console.log('RESPONSE', response)
+        const {user} = response.data;
 
         dispatch({
           type: 'INITIAL',
@@ -112,45 +112,56 @@ export function AuthProvider({ children }) {
   }, [initialize]);
 
   // LOGIN
-  const login = useCallback(async (email, password) => {
-    const response = await axios.post('/api/account/login', {
-      email,
-      password,
-    });
-    const { accessToken, user } = response.data;
+  const login = useCallback(async (username, password) => {
+    try {
+      const response = await axios.post('/auth/token/login', {
+        username,
+        password,
+      });
+      const {auth_token, user} = response.data;
 
-    setSession(accessToken);
+      setSession(auth_token);
 
-    dispatch({
-      type: 'LOGIN',
-      payload: {
-        user,
-      },
-    });
+      dispatch({
+        type: 'LOGIN',
+        payload: {
+          user,
+        },
+      });
+    } catch (error) {
+      throw new Error(error.non_field_errors[0])
+    }
+
   }, []);
 
   // REGISTER
-  const register = useCallback(async (email, password, firstName, lastName) => {
-    const response = await axios.post('/api/account/register', {
-      email,
-      password,
-      firstName,
-      lastName,
-    });
-    const { accessToken, user } = response.data;
+  const register = useCallback(async (email, password, username, invite) => {
+    try {
+      const response = await axios.post('/auth/users/', {
+        re_password: password,
+        email,
+        password,
+        username,
+        invite,
+      });
+      const {accessToken, user} = response.data;
 
-    localStorage.setItem('accessToken', accessToken);
+      localStorage.setItem('accessToken', accessToken);
 
-    dispatch({
-      type: 'REGISTER',
-      payload: {
-        user,
-      },
-    });
+      dispatch({
+        type: 'REGISTER',
+        payload: {
+          user,
+        },
+      });
+    } catch (error) {
+      throw new Error(error.detail)
+    }
   }, []);
 
   // LOGOUT
-  const logout = useCallback(() => {
+  const logout = useCallback(async () => {
+    await axios.post('/auth/token/logout', {});
     setSession(null);
     dispatch({
       type: 'LOGOUT',

@@ -24,12 +24,12 @@ export default function AuthLoginForm() {
   const [showPassword, setShowPassword] = useState(false);
 
   const LoginSchema = Yup.object().shape({
-    email: Yup.string().required('Email обязателен').email('Email должен быть действительным'),
+    username: Yup.string().required('Логин обязателен'),
     password: Yup.string().required('Пароль обязателен'),
   });
 
   const defaultValues = {
-    email: 'demo@minimals.cc',
+    username: 'Test',
     password: 'demo1234',
   };
 
@@ -47,9 +47,8 @@ export default function AuthLoginForm() {
 
   const onSubmit = async (data) => {
     try {
-      await login(data.email, data.password);
+      await login(data.username, data.password);
     } catch (error) {
-      console.error(error);
       reset();
       setError('afterSubmit', {
         ...error,
@@ -63,7 +62,7 @@ export default function AuthLoginForm() {
       <Stack spacing={3}>
         {!!errors.afterSubmit && <Alert severity="error">{errors.afterSubmit.message}</Alert>}
 
-        <RHFTextField name="email" label="Email" />
+        <RHFTextField name="username" label="Логин" />
 
         <RHFTextField
           name="password"

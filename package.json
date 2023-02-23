@@ -1,11 +1,11 @@
 {
   "name": "@minimal/material-kit-nextjs",
-  "author": "Minimals UI",
+  "author": "FatCode",
   "version": "4.2.0",
-  "description": "Simple Next.Js & Javascript",
+  "description": "FatCode",
   "private": true,
   "scripts": {
-    "dev": "next dev -p 3034",
+    "dev": "next dev -p 3000",
     "start": "next start",
     "build": "next build",
     "build-netlify": "next build && cp -r .next _next && mv _next .next/",
