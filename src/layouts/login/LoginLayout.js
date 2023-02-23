@@ -29,14 +29,14 @@ export default function LoginLayout({ children, illustration, title }) {
 
       <StyledSection>
         <Typography variant="h3" sx={{ mb: 10, maxWidth: 480, textAlign: 'center' }}>
-          {title || 'Hi, Welcome back'}
+          {title || 'Привет, кодер!'}
         </Typography>
 
         <Image
           disabledEffect
           visibleByDefault
           alt="auth"
-          src={illustration || '/assets/illustrations/illustration_dashboard.png'}
+          src={illustration || '/assets/illustrations/cat2.svg'}
           sx={{ maxWidth: 720 }}
         />
 
