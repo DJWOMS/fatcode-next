@@ -21,21 +21,19 @@ export default function Page403() {
   return (
     <>
       <Head>
-        <title> 403 Forbidden | Minimal UI</title>
+        <title> 403 Forbidden | Fatcode</title>
       </Head>
 
       <MotionContainer>
         <m.div variants={varBounce().in}>
           <Typography variant="h3" paragraph>
-            No permission
+            Доступ запрещен
           </Typography>
         </m.div>
 
         <m.div variants={varBounce().in}>
           <Typography sx={{ color: 'text.secondary' }}>
-            The page you&apos;re trying access has restricted access.
-            <br />
-            Please refer to your system administrator
+            Страница, к которой вы пытаетесь получить доступ, имеет ограниченный доступ.
           </Typography>
         </m.div>
 
@@ -44,7 +42,7 @@ export default function Page403() {
         </m.div>
 
         <Button component={NextLink} href="/" size="large" variant="contained">
-          Go to Home
+          На главную
         </Button>
       </MotionContainer>
     </>

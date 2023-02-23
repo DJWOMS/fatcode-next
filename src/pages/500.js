@@ -21,7 +21,7 @@ export default function Page500() {
   return (
     <>
       <Head>
-        <title> 500 Internal Server Error | Minimal UI</title>
+        <title> 500 Internal Server Error | Fatcode</title>
       </Head>
 
       <MotionContainer>
@@ -33,7 +33,7 @@ export default function Page500() {
 
         <m.div variants={varBounce().in}>
           <Typography sx={{ color: 'text.secondary' }}>
-            There was an error, please try again later.
+            Произошла ошибка, пожалуйста, повторите попытку позже.
           </Typography>
         </m.div>
 
@@ -42,7 +42,7 @@ export default function Page500() {
         </m.div>
 
         <Button component={NextLink} href="/" size="large" variant="contained">
-          Go to Home
+          На главную
         </Button>
       </MotionContainer>
     </>
