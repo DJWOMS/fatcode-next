@@ -1,3 +1,5 @@
+# FatCode Next.js
+
 ## USING YARN (Recommend)
 
 - yarn install
