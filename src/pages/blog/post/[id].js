@@ -154,11 +154,7 @@ export default function BlogPostPage() {
               <Divider sx={{ mt: 5, mb: 2 }} />
             </Stack>
 
-            <Stack
-              sx={{
-                px: { md: 5 },
-              }}
-            >
+            <Stack sx={{px: { md: 5 },}}>
               <BlogPostCommentList pk={post.id} />
 
               <Pagination
