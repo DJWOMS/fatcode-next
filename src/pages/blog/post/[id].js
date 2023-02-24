@@ -46,11 +46,9 @@ export default function BlogPostPage() {
   const getPost = useCallback(async () => {
     try {
       const response = await axios.get(`/knowledge/article/${id}`);
-      console.log('POST ', id, response.data)
       setPost(response.data);
       setLoadingPost(false);
     } catch (error) {
-      console.error(error);
       setLoadingPost(false);
       setErrorMsg(error.message);
     }

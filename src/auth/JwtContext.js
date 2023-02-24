@@ -75,10 +75,8 @@ export function AuthProvider({children}) {
       if (accessToken) {
         setSession(accessToken);
 
-        const response = await axios.get('/auth/users/me');
-        console.log('RESPONSE', response)
-        const {user} = response.data;
-
+        const response = await axios.get('/profiles/user_me');
+        const user = response.data.results[0];
         dispatch({
           type: 'INITIAL',
           payload: {
