@@ -33,7 +33,7 @@ BlogPostPage.getLayout = (page) => <DashboardLayout>{page}</DashboardLayout>;
 export default function BlogPostPage() {
   const { themeStretch } = useSettingsContext();
 
-  const { query: { title },} = useRouter();
+  const { query: { id },} = useRouter();
 
   const [recentPosts, setRecentPosts] = useState([]);
 
@@ -45,50 +45,50 @@ export default function BlogPostPage() {
 
   const getPost = useCallback(async () => {
     try {
-      const response = await axios.get('/api/blog/post', {
-        params: { title },
+      const response = await axios.get('/knowledge/article/', {
+        params: { id },
       });
 
-      setPost(response.data.post);
+      setPost(response.data);
       setLoadingPost(false);
     } catch (error) {
       console.error(error);
       setLoadingPost(false);
       setErrorMsg(error.message);
     }
-  }, [title]);
+  }, [id]);
 
   const getRecentPosts = useCallback(async () => {
     try {
-      const response = await axios.get('/api/blog/posts/recent', {
-        params: { title },
+      const response = await axios.get('/knowledge/article/', {
+        params: { id },
       });
 
-      setRecentPosts(response.data.recentPosts);
+      setRecentPosts(response.data);
     } catch (error) {
       console.error(error);
     }
-  }, [title]);
+  }, [id]);
 
   useEffect(() => {
     getRecentPosts();
   }, [getRecentPosts]);
 
   useEffect(() => {
-    if (title) {
+    if (id) {
       getPost();
     }
-  }, [getPost, title]);
+  }, [getPost, id]);
 
   return (
     <>
       <Head>
-        <title>{`Blog: ${post?.title || ''} | Minimal UI`}</title>
+        <title>{`Блог: ${post?.title || ''} | FatCode`}</title>
       </Head>
 
       <Container maxWidth={themeStretch ? false : 'lg'}>
         <CustomBreadcrumbs
-          heading="Post Details"
+          heading="Post"
           links={[
             {
               name: 'Blog',

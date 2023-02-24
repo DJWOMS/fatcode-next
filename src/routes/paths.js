@@ -33,5 +33,6 @@ export const PATH_BLOG = {
   root: ROOTS_BLOG,
   posts: path(ROOTS_BLOG, '/posts'),
   new: path(ROOTS_BLOG, '/new'),
-  view: (title) => path(ROOTS_DASHBOARD, `/blog/post/${title}`),
+  view: (id) => path(ROOTS_BLOG, `/post/${id}`),
 }
+  // view: (title) => path(ROOTS_BLOG, `/post/${title}`),

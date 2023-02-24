@@ -44,8 +44,8 @@ export default function BlogPostsPage() {
 
   const getAllPosts = useCallback(async () => {
     try {
-      const response = await axios.get('/api/blog/posts');
-      setPosts(response.data.posts);
+      const response = await axios.get('/knowledge/article/');
+      setPosts(response.data.results);
     } catch (error) {
       console.error(error);
     }
@@ -62,19 +62,19 @@ export default function BlogPostsPage() {
   return (
     <>
       <Head>
-        <title> Blog: Posts | Minimal UI</title>
+        <title> FatCode блог</title>
       </Head>
 
       <Container maxWidth={themeStretch ? false : 'lg'}>
         <CustomBreadcrumbs
-          heading="Blog"
+          heading="Блог"
           links={[
             {
-              name: 'Blog',
+              name: 'Блог',
               href: PATH_BLOG.root,
             },
             {
-              name: 'Posts',
+              name: 'Статьи',
             },
           ]}
           action={
@@ -84,7 +84,7 @@ export default function BlogPostsPage() {
               variant="contained"
               startIcon={<Iconify icon="eva:plus-fill" />}
             >
-              New Post
+              Создать
             </Button>
           }
         />

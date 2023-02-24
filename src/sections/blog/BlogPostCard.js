@@ -39,7 +39,7 @@ BlogPostCard.propTypes = {
 export default function BlogPostCard({ post, index }) {
   const isDesktop = useResponsive('up', 'md');
 
-  const { cover, title, view, comment, share, author, createdAt } = post;
+  const { id, picture, title, view_count, comment, share, author, date_creation } = post;
 
   const latestPost = index === 0 || index === 1 || index === 2;
 
@@ -47,8 +47,8 @@ export default function BlogPostCard({ post, index }) {
     return (
       <Card>
         <Avatar
-          alt={author.name}
-          src={author.avatarUrl}
+          alt={author.username}
+          src={author.avatar}
           sx={{
             top: 24,
             left: 24,
@@ -58,17 +58,18 @@ export default function BlogPostCard({ post, index }) {
         />
 
         <PostContent
+          id={id}
           title={title}
-          view={view}
+          view={view_count}
           comment={comment}
           share={share}
-          createdAt={createdAt}
+          createdAt={date_creation}
           index={index}
         />
 
         <StyledOverlay />
 
-        <Image alt="cover" src={cover} sx={{ height: 360 }} />
+        <Image alt="cover" src={picture} sx={{ height: 360 }} />
       </Card>
     );
   }
@@ -89,8 +90,8 @@ export default function BlogPostCard({ post, index }) {
         />
 
         <Avatar
-          alt={author.name}
-          src={author.avatarUrl}
+          alt={author.username}
+          src={author.avatar}
           sx={{
             left: 24,
             zIndex: 9,
@@ -101,15 +102,16 @@ export default function BlogPostCard({ post, index }) {
           }}
         />
 
-        <Image alt="cover" src={cover} ratio="4/3" />
+        <Image alt="cover" src={picture} ratio="4/3" />
       </Box>
 
       <PostContent
+        id={id}
         title={title}
-        view={view}
+        view={view_count}
         comment={comment}
         share={share}
-        createdAt={createdAt}
+        createdAt={date_creation}
       />
     </Card>
   );
@@ -118,6 +120,7 @@ export default function BlogPostCard({ post, index }) {
 // ----------------------------------------------------------------------
 
 PostContent.propTypes = {
+  id: PropTypes.number,
   view: PropTypes.number,
   index: PropTypes.number,
   share: PropTypes.number,
@@ -126,10 +129,12 @@ PostContent.propTypes = {
   createdAt: PropTypes.string,
 };
 
-export function PostContent({ title, view, comment, share, createdAt, index }) {
+export function PostContent({ id, title, view, comment, share, createdAt, index }) {
   const isDesktop = useResponsive('up', 'md');
 
-  const linkTo = PATH_BLOG.view(paramCase(title));
+  // ToDO добавить slug
+  // const linkTo = PATH_BLOG.view(paramCase(id));
+  const linkTo = PATH_BLOG.view(id);
 
   const latestPostLarge = index === 0;
 

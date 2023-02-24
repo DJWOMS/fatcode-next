@@ -78,7 +78,7 @@ export default function BlogPostsSearch() {
         <CustomTextField
           {...params}
           width={220}
-          placeholder="Search..."
+          placeholder="Поиск..."
           onKeyUp={handleKeyUp}
           InputProps={{
             ...params.InputProps,

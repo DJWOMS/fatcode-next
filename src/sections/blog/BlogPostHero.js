@@ -68,7 +68,7 @@ BlogPostHero.propTypes = {
 };
 
 export default function BlogPostHero({ post }) {
-  const { cover, title, author, createdAt } = post;
+  const { picture, title, author, date_creation } = post;
 
   const isDesktop = useResponsive('up', 'sm');
 
@@ -87,15 +87,15 @@ export default function BlogPostHero({ post }) {
 
       <StyledFooter>
         <Box sx={{ display: 'flex', alignItems: 'center' }}>
-          <Avatar alt={author.name} src={author.avatarUrl} sx={{ width: 48, height: 48 }} />
+          <Avatar alt={author.name} src={author.avatar} sx={{ width: 48, height: 48 }} />
 
           <Box sx={{ ml: 2 }}>
             <Typography variant="subtitle1" sx={{ color: 'common.white' }}>
-              {author.name}
+              {author.username}
             </Typography>
 
             <Typography variant="body2" sx={{ color: 'grey.500' }}>
-              {fDate(createdAt)}
+              {fDate(date_creation)}
             </Typography>
           </Box>
         </Box>
@@ -120,7 +120,7 @@ export default function BlogPostHero({ post }) {
 
       <StyledOverlay />
 
-      <Image alt="cover" src={cover} ratio="16/9" />
+      <Image alt="cover" src={picture} ratio="16/9" />
     </Box>
   );
 }
