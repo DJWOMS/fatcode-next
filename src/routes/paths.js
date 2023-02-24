@@ -5,8 +5,9 @@ function path(root, sublink) {
 }
 
 const ROOTS_AUTH = '/auth';
-const ROOTS_DASHBOARD = '/dashboard';
 const ROOTS_BLOG = '/blog';
+const ROOTS_DASHBOARD = '/dashboard';
+const ROOTS_USER = '/user';
 
 // ----------------------------------------------------------------------
 
@@ -35,4 +36,13 @@ export const PATH_BLOG = {
   new: path(ROOTS_BLOG, '/new'),
   view: (id) => path(ROOTS_BLOG, `/post/${id}`),
 }
-  // view: (title) => path(ROOTS_BLOG, `/post/${title}`),
+
+export const PATH_USER = {
+  root: ROOTS_USER,
+  account: path(ROOTS_DASHBOARD, '/account'),
+  cards: path(ROOTS_DASHBOARD, '/cards'),
+  list: path(ROOTS_DASHBOARD, '/list'),
+  new: path(ROOTS_USER, '/new'),
+  profile: path(ROOTS_DASHBOARD, '/profile'),
+  edit: (name) => path(ROOTS_BLOG, `/${name}/edit`),
+};
