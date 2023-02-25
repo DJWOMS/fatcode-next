@@ -81,7 +81,7 @@ export default function UserProfilePage() {
   return (
     <>
       <Head>
-        <title> User: Profile | Minimal UI</title>
+        <title> Профиль | FatCode</title>
       </Head>
 
       <Container maxWidth={themeStretch ? false : 'lg'}>
@@ -99,7 +99,7 @@ export default function UserProfilePage() {
             position: 'relative',
           }}
         >
-          <ProfileCover name={user?.displayName} role={_userAbout.role} cover={_userAbout.cover} />
+          <ProfileCover name={user?.username} role={_userAbout.role} cover={_userAbout.cover} />
 
           <Tabs
             value={currentTab}

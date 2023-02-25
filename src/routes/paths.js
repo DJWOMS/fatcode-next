@@ -24,10 +24,6 @@ export const PATH_AUTH = {
 
 export const PATH_DASHBOARD = {
   root: ROOTS_DASHBOARD,
-  user: {
-    root: path(ROOTS_DASHBOARD, '/user'),
-    six: path(ROOTS_DASHBOARD, '/user/six'),
-  },
 };
 
 export const PATH_BLOG = {
@@ -44,5 +40,5 @@ export const PATH_USER = {
   list: path(ROOTS_USER, '/list'),
   new: path(ROOTS_USER, '/new'),
   profile: path(ROOTS_USER, '/profile'),
-  edit: (name) => path(ROOTS_USER, `/${name}/edit`),
+  edit: path(ROOTS_USER, `/edit`),
 };

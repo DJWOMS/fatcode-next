@@ -52,15 +52,15 @@ export default function UserNewEditForm({ isEdit = false, currentUser }) {
 
   const defaultValues = useMemo(
     () => ({
-      name: currentUser?.name || '',
+      name: currentUser?.username || '',
       email: currentUser?.email || '',
-      phoneNumber: currentUser?.phoneNumber || '',
+      phoneNumber: currentUser?.phone || '',
       address: currentUser?.address || '',
       country: currentUser?.country || '',
       state: currentUser?.state || '',
       city: currentUser?.city || '',
       zipCode: currentUser?.zipCode || '',
-      avatarUrl: currentUser?.avatarUrl || null,
+      avatarUrl: currentUser?.avatar || null,
       isVerified: currentUser?.isVerified || true,
       status: currentUser?.status,
       company: currentUser?.company || '',

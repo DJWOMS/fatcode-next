@@ -11,7 +11,7 @@ export default function Index() {
 
   useEffect(() => {
     if (pathname === PATH_USER.root) {
-      push(PATH_USER.profile);
+      push(PATH_USER.account);
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [pathname]);

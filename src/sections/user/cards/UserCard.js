@@ -3,13 +3,13 @@ import PropTypes from 'prop-types';
 import { alpha, styled } from '@mui/material/styles';
 import { Box, Card, Avatar, Divider, Typography, Stack, IconButton } from '@mui/material';
 // utils
-import { fShortenNumber } from '../../../../utils/formatNumber';
+import { fShortenNumber } from '../../../utils/formatNumber';
 // _mock
-import { _socials } from '../../../../_mock/arrays';
+import { _socials } from '../../../_mock/arrays';
 // components
-import Image from '../../../../components/image';
-import Iconify from '../../../../components/iconify';
-import SvgColor from '../../../../components/svg-color';
+import Image from '../../../components/image';
+import Iconify from '../../../components/iconify';
+import SvgColor from '../../../components/svg-color';
 
 // ----------------------------------------------------------------------
 

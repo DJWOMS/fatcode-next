@@ -42,12 +42,12 @@ FollowerCard.propTypes = {
     name: PropTypes.string,
     country: PropTypes.string,
     isFollowed: PropTypes.bool,
-    avatarUrl: PropTypes.string,
+    avatar: PropTypes.string,
   }),
 };
 
 function FollowerCard({ follower }) {
-  const { name, country, avatarUrl, isFollowed } = follower;
+  const { name, country, avatar, isFollowed } = follower;
 
   const [toggle, setToogle] = useState(isFollowed);
 
@@ -59,7 +59,7 @@ function FollowerCard({ follower }) {
         alignItems: 'center',
       }}
     >
-      <Avatar alt={name} src={avatarUrl} sx={{ width: 48, height: 48 }} />
+      <Avatar alt={name} src={avatar} sx={{ width: 48, height: 48 }} />
 
       <Box
         sx={{
