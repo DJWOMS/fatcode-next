@@ -38,8 +38,8 @@ const reducer = (state, action) => {
   if (action.type === 'REGISTER') {
     return {
       ...state,
-      isAuthenticated: true,
-      user: action.payload.user,
+      isAuthenticated: false,
+      user: null,
     };
   }
   if (action.type === 'LOGOUT') {
@@ -75,10 +75,8 @@ export function AuthProvider({children}) {
       if (accessToken) {
         setSession(accessToken);
 
-        const response = await axios.get('/auth/users/me');
-        console.log('RESPONSE', response)
-        const {user} = response.data;
-
+        const response = await axios.get('/profiles/user_me');
+        const user = response.data.results[0];
         dispatch({
           type: 'INITIAL',
           payload: {
@@ -144,15 +142,12 @@ export function AuthProvider({children}) {
         username,
         invite,
       });
-      const {accessToken, user} = response.data;
+      // const {user} = response.data;
 
-      localStorage.setItem('accessToken', accessToken);
+      // localStorage.setItem('accessToken', accessToken);
 
       dispatch({
-        type: 'REGISTER',
-        payload: {
-          user,
-        },
+        type: 'REGISTER'
       });
     } catch (error) {
       throw new Error(error)

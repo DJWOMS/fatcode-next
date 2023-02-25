@@ -27,11 +27,11 @@ export default function NavAccount() {
   return (
     <Link underline="none" color="inherit">
       <StyledRoot>
-        <CustomAvatar src={user?.photoURL} alt={user?.displayName} name={user?.displayName} />
+        <CustomAvatar src={user?.avatar} alt={user?.username} name={user?.username} />
 
         <Box sx={{ ml: 2, minWidth: 0 }}>
           <Typography variant="subtitle2" noWrap>
-            {user?.displayName}
+            {user?.username}
           </Typography>
 
           <Typography variant="body2" noWrap sx={{ color: 'text.secondary' }}>

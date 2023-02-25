@@ -29,7 +29,7 @@ export default function AuthLoginForm() {
   });
 
   const defaultValues = {
-    username: 'Test',
+    username: 'DJWOMS',
     password: 'demo1234',
   };
 
