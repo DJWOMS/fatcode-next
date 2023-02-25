@@ -20,59 +20,14 @@ import SvgColor from '../../components/svg-color';
 
 // ----------------------------------------------------------------------
 
-const StyledOverlay = styled('div')(({ theme }) => ({
-  top: 0,
-  zIndex: 1,
-  width: '100%',
-  height: '100%',
-  position: 'absolute',
-  backgroundColor: alpha(theme.palette.grey[900], 0.64),
-}));
-
-// ----------------------------------------------------------------------
-
 BlogPostCard.propTypes = {
   index: PropTypes.number,
   post: PropTypes.object,
 };
 
 export default function BlogPostCard({ post, index }) {
-  const isDesktop = useResponsive('up', 'md');
 
   const { id, picture, title, view_count, comment, share, author, date_creation } = post;
-
-  const latestPost = index === 0 || index === 1 || index === 2;
-
-  if (isDesktop && latestPost) {
-    return (
-      <Card>
-        <Avatar
-          alt={author.username}
-          src={author.avatar}
-          sx={{
-            top: 24,
-            left: 24,
-            zIndex: 9,
-            position: 'absolute',
-          }}
-        />
-
-        <PostContent
-          id={id}
-          title={title}
-          view={view_count}
-          comment={comment}
-          share={share}
-          createdAt={date_creation}
-          index={index}
-        />
-
-        <StyledOverlay />
-
-        <Image alt="cover" src={picture} sx={{ height: 360 }} />
-      </Card>
-    );
-  }
 
   return (
     <Card>
@@ -136,7 +91,7 @@ export function PostContent({ id, title, view, comment, share, createdAt, index 
   // const linkTo = PATH_BLOG.view(paramCase(id));
   const linkTo = PATH_BLOG.view(id);
 
-  const latestPostLarge = index === 0;
+  const latestPostLarge = index === 1;
 
   const latestPostSmall = index === 1 || index === 2;
 
@@ -151,13 +106,13 @@ export function PostContent({ id, title, view, comment, share, createdAt, index 
       sx={{
         pt: 4.5,
         width: 1,
-        ...((latestPostLarge || latestPostSmall) && {
-          pt: 0,
-          zIndex: 9,
-          bottom: 0,
-          position: 'absolute',
-          color: 'common.white',
-        }),
+        // ...((latestPostLarge) && {
+        //   pt: 0,
+        //   zIndex: 9,
+        //   bottom: 0,
+        //   position: 'absolute',
+        //   color: 'common.white',
+        // }),
       }}
     >
       <Typography
@@ -166,7 +121,7 @@ export function PostContent({ id, title, view, comment, share, createdAt, index 
         component="div"
         sx={{
           color: 'text.disabled',
-          ...((latestPostLarge || latestPostSmall) && {
+          ...((latestPostLarge) && {
             opacity: 0.64,
             color: 'common.white',
           }),
@@ -177,7 +132,7 @@ export function PostContent({ id, title, view, comment, share, createdAt, index 
 
       <Link component={NextLink} href={linkTo} color="inherit">
         <TextMaxLine
-          variant={isDesktop && latestPostLarge ? 'h5' : 'subtitle2'}
+          variant='h6'
           line={2}
           persistent
         >
