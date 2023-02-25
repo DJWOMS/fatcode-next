@@ -5,9 +5,9 @@ import { useForm } from 'react-hook-form';
 import { Stack, Card, InputAdornment } from '@mui/material';
 import { LoadingButton } from '@mui/lab';
 // components
-import Iconify from '../../../../components/iconify';
-import { useSnackbar } from '../../../../components/snackbar';
-import FormProvider, { RHFTextField } from '../../../../components/hook-form';
+import Iconify from '../../../components/iconify';
+import { useSnackbar } from '../../../components/snackbar';
+import FormProvider, { RHFTextField } from '../../../components/hook-form';
 
 // ----------------------------------------------------------------------
 

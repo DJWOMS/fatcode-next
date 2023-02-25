@@ -10,20 +10,20 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import { LoadingButton } from '@mui/lab';
 import { Box, Card, Grid, Stack, Switch, Typography, FormControlLabel } from '@mui/material';
 // utils
-import { fData } from '../../../utils/formatNumber';
+import { fData } from '../../utils/formatNumber';
 // routes
-import { PATH_DASHBOARD } from '../../../routes/paths';
+import { PATH_USER } from '../../routes/paths';
 // assets
-import { countries } from '../../../assets/data';
+import { countries } from '../../assets/data';
 // components
-import Label from '../../../components/label';
-import { useSnackbar } from '../../../components/snackbar';
+import Label from '../../components/label';
+import { useSnackbar } from '../../components/snackbar';
 import FormProvider, {
   RHFSelect,
   RHFSwitch,
   RHFTextField,
   RHFUploadAvatar,
-} from '../../../components/hook-form';
+} from '../../components/hook-form';
 
 // ----------------------------------------------------------------------
 
@@ -101,7 +101,7 @@ export default function UserNewEditForm({ isEdit = false, currentUser }) {
       await new Promise((resolve) => setTimeout(resolve, 500));
       reset();
       enqueueSnackbar(!isEdit ? 'Create success!' : 'Update success!');
-      push(PATH_DASHBOARD.user.list);
+      push(PATH_USER.list);
       console.log('DATA', data);
     } catch (error) {
       console.error(error);

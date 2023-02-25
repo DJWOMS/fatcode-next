@@ -39,10 +39,10 @@ export const PATH_BLOG = {
 
 export const PATH_USER = {
   root: ROOTS_USER,
-  account: path(ROOTS_DASHBOARD, '/account'),
-  cards: path(ROOTS_DASHBOARD, '/cards'),
-  list: path(ROOTS_DASHBOARD, '/list'),
+  account: path(ROOTS_USER, '/account'),
+  cards: path(ROOTS_USER, '/cards'),
+  list: path(ROOTS_USER, '/list'),
   new: path(ROOTS_USER, '/new'),
-  profile: path(ROOTS_DASHBOARD, '/profile'),
-  edit: (name) => path(ROOTS_BLOG, `/${name}/edit`),
+  profile: path(ROOTS_USER, '/profile'),
+  edit: (name) => path(ROOTS_USER, `/${name}/edit`),
 };

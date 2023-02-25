@@ -3,10 +3,8 @@ import { useState } from 'react';
 // @mui
 import { Card, Stack, Paper, Button, Typography, IconButton } from '@mui/material';
 // components
-import Image from '../../../../../components/image';
-import Iconify from '../../../../../components/iconify';
-// section
-import { PaymentNewCardDialog } from '../../../../payment';
+import Image from '../../../../components/image';
+import Iconify from '../../../../components/iconify';
 
 // ----------------------------------------------------------------------
 
@@ -86,8 +84,6 @@ export default function AccountBillingPaymentMethod({ cards }) {
           ))}
         </Stack>
       </Card>
-
-      <PaymentNewCardDialog open={open} onClose={handleClose} />
     </>
   );
 }

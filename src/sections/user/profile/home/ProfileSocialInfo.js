@@ -2,9 +2,9 @@ import PropTypes from 'prop-types';
 // @mui
 import { Link, Card, CardHeader, Stack } from '@mui/material';
 // _mock
-import { _socials } from '../../../../../_mock/arrays';
+import { _socials } from '../../../../_mock/arrays';
 // components
-import Iconify from '../../../../../components/iconify';
+import Iconify from '../../../../components/iconify';
 
 // ----------------------------------------------------------------------
 

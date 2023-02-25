@@ -1,5 +1,5 @@
 // routes
-import { PATH_DASHBOARD, PATH_BLOG } from '../../../routes/paths';
+import { PATH_DASHBOARD, PATH_BLOG, PATH_USER } from '../../../routes/paths';
 // components
 import SvgColor from '../../../components/svg-color';
 
@@ -43,14 +43,19 @@ const navConfig = [
   // MANAGEMENT
   // ----------------------------------------------------------------------
   {
-    subheader: 'management',
+    subheader: 'Пользователи',
     items: [
       {
-        title: 'пользователи',
-        path: PATH_DASHBOARD.user.root,
+        title: 'Пользователи',
+        path: PATH_USER.root,
         icon: ICONS.user,
         children: [
-          { title: 'Six', path: PATH_DASHBOARD.user.six },
+          { title: 'Аккаунт', path: PATH_USER.account },
+          { title: 'Список', path: PATH_USER.list },
+          { title: 'Cards', path: PATH_USER.cards },
+          { title: 'Профиль', path: PATH_USER.profile },
+          { title: 'Создать', path: PATH_USER.new },
+          { title: 'Редактировать', path: PATH_USER.edit },
         ],
       },
     ],

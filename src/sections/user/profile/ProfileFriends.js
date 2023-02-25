@@ -14,12 +14,12 @@ import {
   InputAdornment,
 } from '@mui/material';
 // _mock
-import { _socials } from '../../../../_mock/arrays';
+import { _socials } from '../../../_mock/arrays';
 // components
-import Iconify from '../../../../components/iconify';
-import MenuPopover from '../../../../components/menu-popover';
-import { CustomTextField } from '../../../../components/custom-input';
-import SearchNotFound from '../../../../components/search-not-found';
+import Iconify from '../../../components/iconify';
+import MenuPopover from '../../../components/menu-popover';
+import { CustomTextField } from '../../../components/custom-input';
+import SearchNotFound from '../../../components/search-not-found';
 
 // ----------------------------------------------------------------------
 

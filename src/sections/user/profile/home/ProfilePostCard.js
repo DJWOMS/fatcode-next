@@ -17,14 +17,14 @@ import {
   FormControlLabel,
 } from '@mui/material';
 // auth
-import { useAuthContext } from '../../../../../auth/useAuthContext';
+import { useAuthContext } from '../../../../auth/useAuthContext';
 // utils
-import { fDate } from '../../../../../utils/formatTime';
-import { fShortenNumber } from '../../../../../utils/formatNumber';
+import { fDate } from '../../../../utils/formatTime';
+import { fShortenNumber } from '../../../../utils/formatNumber';
 // components
-import Image from '../../../../../components/image';
-import Iconify from '../../../../../components/iconify';
-import { CustomAvatar, CustomAvatarGroup } from '../../../../../components/custom-avatar';
+import Image from '../../../../components/image';
+import Iconify from '../../../../components/iconify';
+import { CustomAvatar, CustomAvatarGroup } from '../../../../components/custom-avatar';
 
 // ----------------------------------------------------------------------
 

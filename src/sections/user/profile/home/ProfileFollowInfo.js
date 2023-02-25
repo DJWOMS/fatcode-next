@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 // @mui
 import { Card, Stack, Typography, Divider } from '@mui/material';
 // utils
-import { fNumber } from '../../../../../utils/formatNumber';
+import { fNumber } from '../../../../utils/formatNumber';
 
 // ----------------------------------------------------------------------
 
