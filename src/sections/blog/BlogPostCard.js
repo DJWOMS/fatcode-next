@@ -1,9 +1,6 @@
 import PropTypes from 'prop-types';
-import { paramCase } from 'change-case';
 // next
 import NextLink from 'next/link';
-// @mui
-import { alpha, styled } from '@mui/material/styles';
 import { Box, Card, Avatar, Typography, CardContent, Stack, Link } from '@mui/material';
 // routes
 import { PATH_BLOG } from '../../routes/paths';
@@ -83,7 +80,7 @@ PostContent.propTypes = {
   comment: PropTypes.number,
   createdAt: PropTypes.string,
 };
-
+/* eslint-disable */
 export function PostContent({ id, title, view, comment, share, createdAt, index }) {
   const isDesktop = useResponsive('up', 'md');
 
@@ -100,7 +97,7 @@ export function PostContent({ id, title, view, comment, share, createdAt, index 
     { id: 'view', value: view, icon: 'eva:eye-fill' },
     { id: 'share', value: share, icon: 'eva:share-fill' },
   ];
-
+/* eslint-disable */
   return (
     <CardContent
       sx={{

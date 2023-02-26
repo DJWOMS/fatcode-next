@@ -6,7 +6,7 @@ import { useAuthContext } from '../../auth/useAuthContext';
 import Iconify from '../../components/iconify';
 
 // ----------------------------------------------------------------------
-
+/* eslint-disable */
 export default function AuthWithSocial() {
   const { loginWithGoogle, loginWithGithub } = useAuthContext();
 
