@@ -51,6 +51,7 @@
     "react-markdown": "^8.0.5",
     "react-quill": "^2.0.0",
     "react-redux": "^8.0.5",
+    "redux": "^4.2.1",
     "redux-persist": "^6.0.0",
     "rehype-highlight": "^6.0.0",
     "rehype-raw": "^6.1.1",
@@ -64,6 +65,7 @@
   "devDependencies": {
     "@babel/core": "^7.20.12",
     "@babel/eslint-parser": "^7.19.1",
+    "@next/eslint-plugin-next": "^13.2.1",
     "eslint": "^8.32.0",
     "eslint-config-airbnb": "^19.0.4",
     "eslint-config-prettier": "^8.6.0",
