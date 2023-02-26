@@ -10,7 +10,8 @@
   "extends": [
     "airbnb",
     "airbnb/hooks",
-    "prettier"
+    "prettier",
+    "plugin:@next/next/recommended"
   ],
   "parser": "@babel/eslint-parser",
   "parserOptions": {

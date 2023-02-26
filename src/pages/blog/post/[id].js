@@ -105,16 +105,6 @@ export default function BlogPostPage() {
           >
             <BlogPostHero post={post} />
 
-            {/*<Typography*/}
-            {/*  variant="h6"*/}
-            {/*  sx={{*/}
-            {/*    py: 5,*/}
-            {/*    px: { md: 5 },*/}
-            {/*  }}*/}
-            {/*>*/}
-            {/*  {post.text}*/}
-            {/*</Typography>*/}
-
             <Markdown
               children={post.text}
               sx={{

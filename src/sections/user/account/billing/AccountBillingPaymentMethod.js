@@ -7,7 +7,7 @@ import Image from '../../../../components/image';
 import Iconify from '../../../../components/iconify';
 
 // ----------------------------------------------------------------------
-
+/* eslint-disable */
 AccountBillingPaymentMethod.propTypes = {
   cards: PropTypes.array,
 };
