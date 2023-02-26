@@ -2,7 +2,7 @@
 
 ## Создать файл .env.local
 
-    API_HOST=http://127.0.0.1:8000/api/v1
+    API_HOST=http://194.67.110.24/api/v1
 
 ## USING YARN (Recommend)
 
