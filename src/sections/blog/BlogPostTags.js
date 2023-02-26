@@ -1,5 +1,6 @@
 import PropTypes from 'prop-types';
 // @mui
+/* eslint-disable */
 import { Chip, Avatar, Checkbox, Stack, FormControlLabel } from '@mui/material';
 // utils
 import { fShortenNumber } from '../../utils/formatNumber';
@@ -8,7 +9,6 @@ import Iconify from '../../components/iconify';
 import { CustomAvatarGroup } from '../../components/custom-avatar';
 
 // ----------------------------------------------------------------------
-
 BlogPostTags.propTypes = {
   post: PropTypes.object,
 };

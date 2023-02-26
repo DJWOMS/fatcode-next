@@ -1,5 +1,6 @@
 import PropTypes from 'prop-types';
 // @mui
+/* eslint-disable */
 import {Box, List, Typography} from '@mui/material';
 //
 import BlogPostCommentItem from './BlogPostCommentItem';

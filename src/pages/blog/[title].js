@@ -5,16 +5,16 @@ import { useRouter } from 'next/router';
 // @mui
 import { Box, Divider, Stack, Container, Typography, Pagination } from '@mui/material';
 // routes
-import { PATH_BLOG } from '../../../routes/paths';
+import { PATH_BLOG } from '../../routes/paths';
 // utils
-import axios from '../../../utils/axios';
+import axios from '../../utils/axios';
 // layouts
-import DashboardLayout from '../../../layouts/dashboard';
+import DashboardLayout from '../../layouts/dashboard';
 // components
-import Markdown from '../../../components/markdown';
-import CustomBreadcrumbs from '../../../components/custom-breadcrumbs';
-import { useSettingsContext } from '../../../components/settings';
-import { SkeletonPostDetails } from '../../../components/skeleton';
+import Markdown from '../../components/markdown';
+import CustomBreadcrumbs from '../../components/custom-breadcrumbs';
+import { useSettingsContext } from '../../components/settings';
+import { SkeletonPostDetails } from '../../components/skeleton';
 // sections
 import {
   BlogPostHero,
@@ -22,7 +22,7 @@ import {
   BlogPostCard,
   BlogPostCommentList,
   BlogPostCommentForm,
-} from '../../../sections/blog';
+} from '../../sections/blog';
 
 // ----------------------------------------------------------------------
 
