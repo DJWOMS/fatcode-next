@@ -16,6 +16,7 @@ LoginLayout.propTypes = {
 };
 
 export default function LoginLayout({ children, illustration, title }) {
+
   return (
     <StyledRoot>
       <Logo

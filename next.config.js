@@ -3,6 +3,6 @@ module.exports = {
   trailingSlash: true,
   env: {
     // HOST
-    HOST_API_KEY: `${process.env.API_HOST}`,
+    API_HOST: `${process.env.API_HOST}`,
   },
 };
