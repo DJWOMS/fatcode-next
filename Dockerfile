@@ -5,7 +5,7 @@ WORKDIR /usr/app
 
 COPY ./ ./
 RUN npm install --global pm2
-RUN npm install --production
+RUN npm install
 RUN npm run build
 
 ENV NODE_ENV production
