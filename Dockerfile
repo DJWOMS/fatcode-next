@@ -9,7 +9,7 @@ RUN npm install --production
 RUN npm run build
 
 ENV NODE_ENV production
-#EXPOSE 3000
+EXPOSE 3000
 
 USER node
 CMD [ "pm2-runtime", "start", "npm", "--", "start" ]
