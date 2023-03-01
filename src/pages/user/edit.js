@@ -1,17 +1,18 @@
+import { useSelector } from 'react-redux';
 // next
 import Head from 'next/head';
 // @mui
-import {Container} from '@mui/material';
+import { Container } from '@mui/material';
 // routes
-import {PATH_USER} from '../../routes/paths';
+import { PATH_USER } from '../../routes/paths';
 // layouts
 import DashboardLayout from '../../layouts/dashboard';
 // components
-import {useSettingsContext} from '../../components/settings';
+import { useSettingsContext } from '../../components/settings';
 import CustomBreadcrumbs from '../../components/custom-breadcrumbs';
 // sections
 import UserNewEditForm from '../../sections/user/UserNewEditForm';
-import {useAuthContext} from "../../auth/useAuthContext";
+import { useAuthContext } from "../../auth/useAuthContext";
 
 // ----------------------------------------------------------------------
 
@@ -20,10 +21,10 @@ UserEditPage.getLayout = (page) => <DashboardLayout>{page}</DashboardLayout>;
 // ----------------------------------------------------------------------
 
 export default function UserEditPage() {
-  const {themeStretch} = useSettingsContext();
+  const { themeStretch } = useSettingsContext();
 
-  const { user } = useAuthContext();
-
+  // const { user } = useAuthContext();
+  const userState = useSelector(state => state.user);
 
   return (
     <>
@@ -39,11 +40,11 @@ export default function UserEditPage() {
               name: 'Пользователи',
               href: PATH_USER.list,
             },
-            {name: user?.username},
+            { name: userState.user?.username },
           ]}
         />
 
-        <UserNewEditForm isEdit currentUser={user}/>
+        <UserNewEditForm isEdit currentUser={userState.user} />
       </Container>
     </>
   );

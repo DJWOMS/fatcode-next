@@ -1,3 +1,4 @@
+import { useSelector } from 'react-redux';
 // @mui
 import { styled, alpha } from '@mui/material/styles';
 import { Box, Link, Typography } from '@mui/material';
@@ -22,20 +23,21 @@ const StyledRoot = styled('div')(({ theme }) => ({
 // ----------------------------------------------------------------------
 
 export default function NavAccount() {
-  const { user } = useAuthContext();
+  const userState = useSelector(state => state.user);
+  // const { user } = useAuthContext();
 
   return (
     <Link underline="none" color="inherit">
       <StyledRoot>
-        <CustomAvatar src={user?.avatar} alt={user?.username} name={user?.username} />
+        <CustomAvatar src={userState.user?.avatar} alt={userState.user?.username} name={userState.user?.username} />
 
         <Box sx={{ ml: 2, minWidth: 0 }}>
           <Typography variant="subtitle2" noWrap>
-            {user?.username}
+            {userState.user?.username}
           </Typography>
 
           <Typography variant="body2" noWrap sx={{ color: 'text.secondary' }}>
-            {user?.role}
+            {userState.user?.role}
           </Typography>
         </Box>
       </StyledRoot>

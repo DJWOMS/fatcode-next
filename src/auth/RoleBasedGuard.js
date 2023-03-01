@@ -1,4 +1,5 @@
 import PropTypes from 'prop-types';
+import { useSelector } from 'react-redux';
 import { m } from 'framer-motion';
 // @mui
 import { Container, Typography } from '@mui/material';
@@ -19,10 +20,11 @@ RoleBasedGuard.propTypes = {
 
 export default function RoleBasedGuard({ hasContent, roles, children }) {
   // Logic here to get current user role
-  const { user } = useAuthContext();
+  //const { user } = useAuthContext();
+  const userState = useSelector(state => state.user);
 
   // const currentRole = 'user';
-  const currentRole = user?.role; // admin;
+  const currentRole = userState.user?.role; // admin;
 
   if (typeof roles !== 'undefined' && !roles.includes(currentRole)) {
     return hasContent ? (

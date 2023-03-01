@@ -1,3 +1,4 @@
+import { useSelector } from 'react-redux';
 import { useState } from 'react';
 // next
 import Head from 'next/head';
@@ -38,8 +39,8 @@ UserProfilePage.getLayout = (page) => <DashboardLayout>{page}</DashboardLayout>;
 
 export default function UserProfilePage() {
   const { themeStretch } = useSettingsContext();
-
-  const { user } = useAuthContext();
+  const userState = useSelector(state => state.user);
+  // const { user } = useAuthContext();
 
   const [searchFriends, setSearchFriends] = useState('');
 
@@ -89,7 +90,7 @@ export default function UserProfilePage() {
           heading="Profile"
           links={[
             { name: 'Пользователь', href: PATH_USER.root },
-            { name: user?.username },
+            { name: userState.user?.username },
           ]}
         />
         <Card
@@ -99,7 +100,7 @@ export default function UserProfilePage() {
             position: 'relative',
           }}
         >
-          <ProfileCover name={user?.username} role={_userAbout.role} cover={_userAbout.cover} />
+          <ProfileCover name={userState.user?.username} role={_userAbout.role} cover={_userAbout.cover} />
 
           <Tabs
             value={currentTab}

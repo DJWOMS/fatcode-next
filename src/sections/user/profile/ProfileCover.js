@@ -1,4 +1,5 @@
 import PropTypes from 'prop-types';
+import { useSelector } from 'react-redux';
 // @mui
 import { styled } from '@mui/material/styles';
 import { Box, Typography } from '@mui/material';
@@ -50,15 +51,16 @@ ProfileCover.propTypes = {
 };
 
 export default function ProfileCover({ name, role, cover }) {
-  const { user } = useAuthContext();
+  const userState = useSelector(state => state.user);
+  //  const { user } = useAuthContext();
 
   return (
     <StyledRoot>
       <StyledInfo>
         <CustomAvatar
-          src={user?.photoURL}
-          alt={user?.displayName}
-          name={user?.displayName}
+          src={userState.user?.photoURL}
+          alt={userState.user?.displayName}
+          name={userState.user?.displayName}
           sx={{
             mx: 'auto',
             borderWidth: 2,
