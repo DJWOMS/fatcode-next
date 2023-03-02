@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useSelector } from 'react-redux';
 // next
 import { useRouter } from 'next/router';
 // @mui
@@ -35,8 +36,8 @@ const OPTIONS = [
 
 export default function AccountPopover() {
   const { replace, push } = useRouter();
-
-  const { user, logout } = useAuthContext();
+  const userState = useSelector(state => state.user);
+  const { logout } = useAuthContext();
 
   const { enqueueSnackbar } = useSnackbar();
 
@@ -85,17 +86,17 @@ export default function AccountPopover() {
           }),
         }}
       >
-        <CustomAvatar src={user?.avatar} alt={user?.username} name={user?.username} />
+        <CustomAvatar src={userState.user?.avatar} alt={userState.user?.username} name={userState.user?.username} />
       </IconButtonAnimate>
 
       <MenuPopover open={openPopover} onClose={handleClosePopover} sx={{ width: 200, p: 0 }}>
         <Box sx={{ my: 1.5, px: 2.5 }}>
           <Typography variant="subtitle2" noWrap>
-            {user?.username}
+            {userState.user?.username}
           </Typography>
 
           <Typography variant="body2" sx={{ color: 'text.secondary' }} noWrap>
-            {user?.email}
+            {userState.user?.email}
           </Typography>
         </Box>
 

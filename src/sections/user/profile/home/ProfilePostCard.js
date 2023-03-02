@@ -1,4 +1,5 @@
 import PropTypes from 'prop-types';
+import { useSelector } from 'react-redux';
 import { useState, useRef } from 'react';
 // @mui
 import { alpha } from '@mui/material/styles';
@@ -33,7 +34,8 @@ ProfilePostCard.propTypes = {
 };
 
 export default function ProfilePostCard({ post }) {
-  const { user } = useAuthContext();
+  const userState = useSelector(state => state.user);
+  // const { user } = useAuthContext();
 
   const commentInputRef = useRef(null);
 
@@ -80,11 +82,11 @@ export default function ProfilePostCard({ post }) {
       <CardHeader
         disableTypography
         avatar={
-          <CustomAvatar src={user?.photoURL} alt={user?.displayName} name={user?.displayName} />
+          <CustomAvatar src={userState.user?.photoURL} alt={userState.user?.displayName} name={userState.user?.displayName} />
         }
         title={
           <Link color="inherit" variant="subtitle2">
-            {user?.displayName}
+            {userState.user?.displayName}
           </Link>
         }
         subheader={
@@ -191,7 +193,7 @@ export default function ProfilePostCard({ post }) {
           p: (theme) => theme.spacing(0, 3, 3, 3),
         }}
       >
-        <CustomAvatar src={user?.photoURL} alt={user?.displayName} name={user?.displayName} />
+        <CustomAvatar src={userState.user?.photoURL} alt={userState.user?.displayName} name={userState.user?.displayName} />
 
         <InputBase
           fullWidth
