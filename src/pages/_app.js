@@ -6,10 +6,15 @@ import 'react-lazy-load-image-component/src/effects/blur.css';
 
 // ----------------------------------------------------------------------
 
+
 import PropTypes from 'prop-types';
 import {CacheProvider} from '@emotion/react';
 // next
 import Head from 'next/head';
+
+import { Provider } from 'react-redux';
+import { store } from '../redux/store';
+
 // utils
 import createEmotionCache from '../utils/createEmotionCache';
 // theme
@@ -25,7 +30,6 @@ import {ThemeSettings, SettingsProvider} from '../components/settings';
 // https://docs.minimals.cc/authentication/js-version
 
 import {AuthProvider} from '../auth/JwtContext';
-
 // ----------------------------------------------------------------------
 
 const clientSideEmotionCache = createEmotionCache();
@@ -47,6 +51,7 @@ export default function MyApp(props) {
         <meta name="viewport" content="initial-scale=1, width=device-width"/>
       </Head>
 
+      <Provider store={store}>
       <AuthProvider>
         <SettingsProvider>
           <MotionLazyContainer>
@@ -61,6 +66,7 @@ export default function MyApp(props) {
           </MotionLazyContainer>
         </SettingsProvider>
       </AuthProvider>
+      </Provider>
     </CacheProvider>
   );
 }
