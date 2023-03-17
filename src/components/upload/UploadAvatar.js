@@ -119,7 +119,6 @@ export default function UploadAvatar({ error, file, disabled, helperText, sx, ..
           <Typography variant="caption">{file ? 'Update photo' : 'Upload photo'}</Typography>
         </StyledPlaceholder>
       </StyledDropZone>
-
       {helperText && helperText}
 
       <RejectionFiles fileRejections={fileRejections} />
