@@ -42,8 +42,8 @@ export default function BlogPostCard({ post, index }) {
         />
 
         <Avatar
-          alt={author.username}
-          src={author.avatar}
+          alt={author?.username}
+          src={author?.avatar}
           sx={{
             left: 24,
             zIndex: 9,
@@ -97,7 +97,7 @@ export function PostContent({ id, title, view, comment, share, createdAt, index 
     { id: 'view', value: view, icon: 'eva:eye-fill' },
     { id: 'share', value: share, icon: 'eva:share-fill' },
   ];
-/* eslint-disable */
+  /* eslint-disable */
   return (
     <CardContent
       sx={{

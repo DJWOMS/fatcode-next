@@ -1,4 +1,5 @@
 import * as Yup from 'yup';
+import { useSelector } from 'react-redux';
 import { useCallback } from 'react';
 // form
 import { useForm } from 'react-hook-form';
@@ -25,8 +26,8 @@ import FormProvider, {
 
 export default function AccountGeneral() {
   const { enqueueSnackbar } = useSnackbar();
-
-  const { user } = useAuthContext();
+  const userState = useSelector(state => state.user);
+  // const { user } = useAuthContext();
 
   const UpdateUserSchema = Yup.object().shape({
     displayName: Yup.string().required('Name is required'),
@@ -42,17 +43,17 @@ export default function AccountGeneral() {
   });
 
   const defaultValues = {
-    displayName: user?.displayName || '',
-    email: user?.email || '',
-    photoURL: user?.photoURL || null,
-    phoneNumber: user?.phoneNumber || '',
-    country: user?.country || '',
-    address: user?.address || '',
-    state: user?.state || '',
-    city: user?.city || '',
-    zipCode: user?.zipCode || '',
-    about: user?.about || '',
-    isPublic: user?.isPublic || false,
+    displayName: userState.user?.displayName || '',
+    email: userState.user?.email || '',
+    photoURL: userState.user?.photoURL || null,
+    phoneNumber: userState.user?.phoneNumber || '',
+    country: userState.user?.country || '',
+    address: userState.user?.address || '',
+    state: userState.user?.state || '',
+    city: userState.user?.city || '',
+    zipCode: userState.user?.zipCode || '',
+    about: userState.user?.about || '',
+    isPublic: userState.user?.isPublic || false,
   };
 
   const methods = useForm({

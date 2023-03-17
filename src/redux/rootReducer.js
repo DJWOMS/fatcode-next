@@ -8,6 +8,7 @@ import productReducer from './slices/product';
 import calendarReducer from './slices/calendar';
 import kanbanReducer from './slices/kanban';
 import accountSlice from './slices/accountSlice';
+import userReducer from './slices/user';
 
 // ----------------------------------------------------------------------
 
@@ -45,6 +46,7 @@ const rootReducer = combineReducers({
   chat: chatReducer,
   calendar: calendarReducer,
   kanban: kanbanReducer,
+  user: userReducer,
   product: persistReducer(productPersistConfig, productReducer),
   accountSlice,
 });
